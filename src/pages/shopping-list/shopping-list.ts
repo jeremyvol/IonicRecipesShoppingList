@@ -1,10 +1,36 @@
+import { Ingredient } from './../../models/ingredient';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NgForm } from '@angular/forms';
+import { ShoppingListService } from '../../services/shopping-list';
 
 @Component({
     selector: 'page-shopping-list',
     templateUrl: 'shopping-list.html'
 })
 export class ShoppingListPage {
-    constructor(public navCtrl: NavController) {}
+    listItems: Ingredient[];
+
+    constructor(private shoppingListService: ShoppingListService) {}
+
+    ionViewWillEnter() {
+        this.loadItems();
+    }
+
+    onSubmit(form: NgForm): void {
+        this.shoppingListService.addItem(
+            form.value.ingredientName,
+            form.value.amount
+        );
+        form.reset();
+        this.loadItems();
+    }
+
+    onRemoveItem(index: number) {
+        this.shoppingListService.removeIngredient(index);
+        this.loadItems();
+    }
+
+    private loadItems() {
+        this.listItems = this.shoppingListService.getItems();
+    }
 }

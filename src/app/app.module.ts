@@ -10,6 +10,9 @@ import { RecipePage } from '../pages/recipe/recipe';
 import { RecipesPage } from '../pages/recipes/recipes';
 import { ShoppingListPage } from '../pages/shopping-list/shopping-list';
 
+import { ShoppingListService } from './../services/shopping-list';
+import { RecipesService } from '../services/recipes';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -33,6 +36,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         TabsPage
     ],
     providers: [
+        ShoppingListService,
+        RecipesService,
         StatusBar,
         SplashScreen,
         { provide: ErrorHandler, useClass: IonicErrorHandler }

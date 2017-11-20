@@ -1,10 +1,29 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { EditRecipePage } from './../edit-recipe/edit-recipe';
+import { Recipe } from '../../models/recipe';
+import { RecipesService } from '../../services/recipes';
 
 @Component({
     selector: 'page-recipes',
     templateUrl: 'recipes.html'
 })
 export class RecipesPage {
-    constructor(public navCtrl: NavController) {}
+    recipes: Recipe[];
+
+    constructor(
+        private navCtrl: NavController,
+        private recipesService: RecipesService
+    ) {}
+
+    ionViewWillEnter() {
+        this.recipes = this.recipesService.getRecipes();
+        console.log(this.recipes);
+    }
+
+    onNewRecipe() {
+        this.navCtrl.push(EditRecipePage, { mode: 'New' });
+    }
+
+    onLoadRecipe() {}
 }
