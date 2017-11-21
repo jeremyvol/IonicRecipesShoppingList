@@ -48,13 +48,6 @@ export class EditRecipePage implements OnInit {
             });
         }
         if (this.mode === 'Edit') {
-            console.log(
-                this.index,
-                value.title,
-                value.description,
-                value.difficulty,
-                ingredients
-            );
             this.recipesService.updateRecipe(
                 this.index,
                 value.title,
