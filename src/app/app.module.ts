@@ -1,5 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
@@ -12,9 +13,13 @@ import { ShoppingListPage } from '../pages/shopping-list/shopping-list';
 
 import { ShoppingListService } from './../services/shopping-list';
 import { RecipesService } from '../services/recipes';
+import { AuthService } from '../services/auth';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { SigninPage } from '../pages/signin/signin';
+import { SignupPage } from '../pages/signup/signup';
+import { SLOptionsPage } from '../pages/shopping-list/sl-options/sl-options';
 
 @NgModule({
     declarations: [
@@ -23,9 +28,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         RecipePage,
         RecipesPage,
         ShoppingListPage,
-        TabsPage
+        TabsPage,
+        SigninPage,
+        SignupPage,
+        SLOptionsPage
     ],
-    imports: [BrowserModule, IonicModule.forRoot(MyApp)],
+    imports: [BrowserModule, HttpModule, IonicModule.forRoot(MyApp)],
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
@@ -33,11 +41,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
         RecipePage,
         RecipesPage,
         ShoppingListPage,
-        TabsPage
+        TabsPage,
+        SigninPage,
+        SignupPage,
+        SLOptionsPage
     ],
     providers: [
         ShoppingListService,
         RecipesService,
+        AuthService,
         StatusBar,
         SplashScreen,
         { provide: ErrorHandler, useClass: IonicErrorHandler }
