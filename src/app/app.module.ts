@@ -19,7 +19,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SigninPage } from '../pages/signin/signin';
 import { SignupPage } from '../pages/signup/signup';
-import { SLOptionsPage } from '../pages/shopping-list/sl-options/sl-options';
+import { DatabaseOptionsPage } from '../pages/database-options/database-options';
 
 @NgModule({
     declarations: [
@@ -31,7 +31,7 @@ import { SLOptionsPage } from '../pages/shopping-list/sl-options/sl-options';
         TabsPage,
         SigninPage,
         SignupPage,
-        SLOptionsPage
+        DatabaseOptionsPage
     ],
     imports: [BrowserModule, HttpModule, IonicModule.forRoot(MyApp)],
     bootstrap: [IonicApp],
@@ -44,7 +44,7 @@ import { SLOptionsPage } from '../pages/shopping-list/sl-options/sl-options';
         TabsPage,
         SigninPage,
         SignupPage,
-        SLOptionsPage
+        DatabaseOptionsPage
     ],
     providers: [
         ShoppingListService,

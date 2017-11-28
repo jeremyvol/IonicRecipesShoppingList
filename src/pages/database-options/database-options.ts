@@ -2,7 +2,7 @@ import { ViewController } from 'ionic-angular';
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'page-sl-optioms',
+    selector: 'page-database-optioms',
     template: `
         <ion-grid text-center>
             <ion-row>
@@ -24,7 +24,7 @@ import { Component } from '@angular/core';
         </ion-grid>
     `
 })
-export class SLOptionsPage {
+export class DatabaseOptionsPage {
     constructor(private viewCtrl: ViewController) {}
 
     onAction(action: string) {

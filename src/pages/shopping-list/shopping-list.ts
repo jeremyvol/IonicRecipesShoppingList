@@ -11,7 +11,7 @@ import { Ingredient } from './../../models/ingredient';
 import { AuthService } from '../../services/auth';
 import { ShoppingListService } from '../../services/shopping-list';
 
-import { SLOptionsPage } from './sl-options/sl-options';
+import { DatabaseOptionsPage } from '../database-options/database-options';
 
 @Component({
     selector: 'page-shopping-list',
@@ -47,10 +47,13 @@ export class ShoppingListPage {
     }
 
     onShowOptions(ev: MouseEvent) {
-        const loading = this.loadingCtrl.create({ content: 'Plese wait...' });
-        const popover = this.popoverCtrl.create(SLOptionsPage);
+        const loading = this.loadingCtrl.create({ content: 'Please wait...' });
+        const popover = this.popoverCtrl.create(DatabaseOptionsPage);
         popover.present({ ev });
         popover.onDidDismiss(data => {
+            if (!data) {
+                return;
+            }
             if (data.action === 'load') {
                 loading.present();
                 this.authService
@@ -68,7 +71,7 @@ export class ShoppingListPage {
                             },
                             error => {
                                 loading.dismiss();
-                                this.handleError(error.message);
+                                this.handleError(error.json().error);
                             }
                         );
                     });
@@ -84,7 +87,7 @@ export class ShoppingListPage {
                             },
                             error => {
                                 loading.dismiss();
-                                this.handleError(error.message);
+                                this.handleError(error.json().error);
                             }
                         );
                     });
