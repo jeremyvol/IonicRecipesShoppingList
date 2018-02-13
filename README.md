@@ -1,6 +1,6 @@
 # IonicRecipesShoppingList
 
-Made with **Ionic** https://ionicframework.com/
+Made with **Ionic** https://ionicframework.com/ and **Firebase** https://firebase.google.com/
 
 Made during online training "Ionic 2/ Ionic 3 - Build iOS & Android Apps with Angular" 
 on https://www.udemy.com/ionic-2-the-practical-guide-to-building-ios-android-apps/
